@@ -15,10 +15,3 @@ install:
 script:
     ## build ##
      - npm install -g react-360-cli
-    ## test ##
-    - npm run flow --check
-    - REACT_NATIVE_MAX_WORKERS=1 npm run test
-    # build packages
-    - node scripts/build-packages.js
-    # test website generation
-    - cd website && node ./server/generate.js
