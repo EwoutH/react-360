@@ -1,5 +1,9 @@
 language: node_js
 
+node_js:
+  - node
+  - 10
+
 env:
  - scr: 'npm install -g react-360-cli'
  - scr: 'pushd website && npm install && popd'
@@ -10,6 +14,4 @@ install:
     - node scripts/install-deps.js
  
 script:
-     - $src
-     - $src
      - $src
