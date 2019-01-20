@@ -1,0 +1,24 @@
+language: node_js
+
+node_js:
+ - 11
+ - 10
+ - 8
+ - 6
+
+install:
+    ## dependencies ##
+    - node scripts/install-deps.js
+    - pushd website && npm install && popd
+    - pushd react-360-cli && npm install && popd
+ 
+script:
+    ## build ##
+     - npm install -g react-360-cli
+    ## test ##
+    - npm run flow -- check
+    - REACT_NATIVE_MAX_WORKERS=1 npm run test
+    # build packages
+    - node scripts/build-packages.js
+    # test website generation
+    - cd website && node ./server/generate.js
